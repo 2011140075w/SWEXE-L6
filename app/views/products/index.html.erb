@@ -1,0 +1,12 @@
+<h2> 商品一覧 </h2>
+
+<% @products.each do |product| %>
+    <div>
+        <%= product.name %> - ¥<%= product.price %>
+        <%= link_to '削除', product_path(product.id), method: :delete %>
+        <%= link_to 'カート追加', new_cart_item_path(product_id: product.id)%>
+    </div>
+<% end %>
+
+<p> <%= link_to '商品を追加する' , new_product_path %> </p>
+<p> <%= link_to 'カートを見る' , cart_path(current_cart) %> </p>

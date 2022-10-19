@@ -1,0 +1,16 @@
+<h2> 商品追加 </h2>
+
+<%= form_for @product, url: { action: :create } do |f| %>
+    <p>
+        <%= f.label :name, '商品名' %>
+        <%= f.text_field :name %>
+    </p>
+    <p>
+        <%= f.label :price, '価格' %>
+        <%= f.number_field :price %>
+    </p>
+    <%= f.submit '商品を追加する' %>
+<% end %>
+
+<p> <%= link_to '商品一覧' , products_path %> </p>
+<p> <%= link_to 'カートを見る' , cart_path(current_cart) %> </p>

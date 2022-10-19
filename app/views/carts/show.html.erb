@@ -1,0 +1,12 @@
+<h2> カート一覧 </h2>
+
+<% @cart.cart_items.each do |item| %>
+    <div>
+        <%= item.product.name %> - ¥<%= item.product.price %> - <%= item.qty %>個
+        <%= link_to 'カートから削除', cart_item_path(item.id), method: :delete %>
+    </div>
+<% end %>
+
+<p> 合計金額: <%= @total_balance %>円 </p>
+
+<p> <%= link_to '商品一覧' , products_path %> </p>
